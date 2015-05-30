@@ -22,7 +22,12 @@ function initialize() {
 		from: fTableID
 	}
   });
-  
+  initialLayer = new google.maps.FusionTablesLayer({
+	query: {
+		select: locCol,
+		from: fTableID
+	}
+  });
   var heatmap = new google.maps.visualization.HeatmapLayer();
   /*var saLayer = new google.maps.FusionTablesLayer({
 	query: { 
@@ -47,6 +52,7 @@ function initialize() {
   markers = [];
   
   layFirms.setMap(null);
+  initialLayer.setMap(map);
 }
 			
 
@@ -199,7 +205,7 @@ function removeMarkers() {
 	
 
 function updateMap() {
-		
+	initialLayer.setMap(null);	
 	if(selCat !=0) {
 		subLayer = new google.maps.FusionTablesLayer({
 			query: {
