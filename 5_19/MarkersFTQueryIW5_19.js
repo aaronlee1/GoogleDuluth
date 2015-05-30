@@ -46,7 +46,7 @@ function initialize() {
   
   markers = [];
   
-  layFirms.setMap(null);
+  layFirms.setMap(map);
 }
 			
 
